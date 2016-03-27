@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A developer friendly Wordpress learning management plugin
 
+[Get Started Now](documentation/README.md)
+
 == Description ==
 
 This plugin was born after attempts at hacking certain existing LMS with varying degrees of success. Below is a list of things this plugins aims to achieve.
