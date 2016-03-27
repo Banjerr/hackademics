@@ -18,6 +18,21 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		sass: {
+			dist: {
+				files: {
+					'style/style.css' : 'style/style.scss'
+				}
+			}
+		},
+
+		watch: {
+			css: {
+				files: '**/*.scss',
+				tasks: ['sass']
+			}
+		},
+
 		wp_readme_to_markdown: {
 			your_target: {
 				files: {
@@ -45,6 +60,9 @@ module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
+	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.registerTask( 'default', ['watch'] );
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 
