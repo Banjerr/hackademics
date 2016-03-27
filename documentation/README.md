@@ -4,4 +4,4 @@
 
 A developer friendly Wordpress learning management plugin
 
-* [Table Of Contents](TOC.md)
+
