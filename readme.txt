@@ -1,61 +1,56 @@
 === Hackademics ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
+Contributors:
+Donate link: http://countryfriedcoders.me
+Tags: learningmanagementsystem, lms, learn, manage, class, quiz, assignment, teach, community
 Requires at least: 3.0.1
-Tested up to: 3.4
+Tested up to: ^4
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+A developer friendly Wordpress learning management plugin
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+This plugin was born after attempts at hacking certain existing LMS with varying degrees of success. Below is a list of things this plugins aims to achieve.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+* Provide a standard set of post types for managing learning
+* * Class
+* * Lesson
+* * Topic
+* * Assignment
+* * Certificate
 
-A few notes about the sections above:
+* Give the ability to create more post types of each class (parent, child, sub-child, etc)
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+* Add a method of tracking a students progress through the system
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+* Add a new user role for "Hackademics Teachers"
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+* Ability to force a linear progression through classes/lessons/topics
+
+* Ability to drip content over a specified amount of time
+
+* Provide a sense of community for students utilizing several methods
+* * badges that can be awarded by the "teachers" (badges will be displayed on the profile)
+* * integrate with BuddyPress by giving the ability to start a forum thread within a lesson; in order to get help from peers/teachers
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
+...Screenshots coming soon...
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Can I do "so and so" with Hackademics? =
 
-An answer to that question.
+"Possibly, and if not you can probably hook into something and make Hackademics do what you need to. See the hackademics_docs for some pretty bad ass documentation"
 
 = What about foo bar? =
 
-Answer to foo bar dilemma.
+Wom bat.
 
 == Screenshots ==
 
@@ -67,48 +62,8 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+... Not yet...
 
 == Upgrade Notice ==
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+... Not yet...
