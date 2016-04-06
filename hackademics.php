@@ -11,7 +11,33 @@
  * @package Hackademics
  */
 
-namespace Hackademics\Classes;
+/**
+ *  add enrolled hackademics stuff to user profile
+*/
+
+function addEnrolledHackademicsField( $user ) { ?>
+
+    <h3>Hackademics</h3>
+
+    <table class="form-table">
+
+        <tr>
+            <th><label for="enrolledHackademics">Enrolled in...</label></th>
+
+            <td>
+                <?php
+                $enrolledHackademics = get_the_author_meta( 'enrolledHackademics', $user->ID, true );
+                $prettyEnrolledHackademics = implode(', ', $favedPosts);
+                ?>
+                <input type="text" name="enrolledHackademics" id="enrolledHackademics" value="<?php echo $prettyEnrolledHackademics; ?>" class="regular-text" /><br />
+                <span class="description">List of classes currently enrolled in...</span>
+            </td>
+        </tr>
+
+    </table>
+<?php }
+add_action( 'show_user_profile', 'addEnrolledHackademicsField' );
+add_action( 'edit_user_profile', 'addEnrolledHackademicsField' );
 
 /**
  *  Set Up The Post Type Class
