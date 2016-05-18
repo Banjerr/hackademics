@@ -11,6 +11,11 @@
  * @package Hackademics
  */
 
+ /**
+  *    require the CPT class
+*/
+require_once( plugin_dir_path( __FILE__ ) . 'hackCPT.php' );
+
 /**
  *  add enrolled hackademics stuff to user profile
 */
@@ -41,41 +46,42 @@ add_action( 'edit_user_profile', 'addEnrolledHackademicsField' );
 
 /**
  *    add CPTs as cpt holder
+ * TODO hide this from the menu and only have it available on the settings screen
 */
-if ( ! function_exists('hackademics_class') ) {
+if ( ! function_exists('hackademics_posts') ) {
     // Register Custom Post Type
-    function hackademics_class() {
+    function hackademics_posts() {
 
     	$labels = array(
-    		'name'                  => _x( 'Classes', 'Post Type General Name', 'hackademics' ),
-    		'singular_name'         => _x( 'Class', 'Post Type Singular Name', 'hackademics' ),
-    		'menu_name'             => __( 'Classes', 'hackademics' ),
-    		'name_admin_bar'        => __( 'Class', 'hackademics' ),
-    		'archives'              => __( 'Class Archives', 'hackademics' ),
-    		'parent_item_colon'     => __( 'Parent Class:', 'hackademics' ),
-    		'all_items'             => __( 'All Classes', 'hackademics' ),
-    		'add_new_item'          => __( 'Add New Class', 'hackademics' ),
+    		'name'                  => _x( 'Hackademics Posts', 'Post Type General Name', 'hackademics' ),
+    		'singular_name'         => _x( 'Hackademics Post', 'Post Type Singular Name', 'hackademics' ),
+    		'menu_name'             => __( 'Hackademics Posts', 'hackademics' ),
+    		'name_admin_bar'        => __( 'Hackademics Post', 'hackademics' ),
+    		'archives'              => __( 'Hackademics Post Archives', 'hackademics' ),
+    		'parent_item_colon'     => __( 'Parent Hackademics Post:', 'hackademics' ),
+    		'all_items'             => __( 'All Hackademics Posts', 'hackademics' ),
+    		'add_new_item'          => __( 'Add New Hackademics Post', 'hackademics' ),
     		'add_new'               => __( 'Add New', 'hackademics' ),
-    		'new_item'              => __( 'New Class', 'hackademics' ),
-    		'edit_item'             => __( 'Edit Class', 'hackademics' ),
-    		'update_item'           => __( 'Update Class', 'hackademics' ),
-    		'view_item'             => __( 'View Class', 'hackademics' ),
-    		'search_items'          => __( 'Search Class', 'hackademics' ),
+    		'new_item'              => __( 'New Hackademics Post', 'hackademics' ),
+    		'edit_item'             => __( 'Edit Hackademics Post', 'hackademics' ),
+    		'update_item'           => __( 'Update Hackademics Post', 'hackademics' ),
+    		'view_item'             => __( 'View Hackademics Post', 'hackademics' ),
+    		'search_items'          => __( 'Search Hackademics Post', 'hackademics' ),
     		'not_found'             => __( 'Not found', 'hackademics' ),
     		'not_found_in_trash'    => __( 'Not found in Trash', 'hackademics' ),
     		'featured_image'        => __( 'Featured Image', 'hackademics' ),
     		'set_featured_image'    => __( 'Set featured image', 'hackademics' ),
     		'remove_featured_image' => __( 'Remove featured image', 'hackademics' ),
     		'use_featured_image'    => __( 'Use as featured image', 'hackademics' ),
-    		'insert_into_item'      => __( 'Insert into class', 'hackademics' ),
-    		'uploaded_to_this_item' => __( 'Uploaded to this class', 'hackademics' ),
-    		'items_list'            => __( 'Classes list', 'hackademics' ),
-    		'items_list_navigation' => __( 'Classes list navigation', 'hackademics' ),
-    		'filter_items_list'     => __( 'Filter classes list', 'hackademics' ),
+    		'insert_into_item'      => __( 'Insert into Hackademics Post', 'hackademics' ),
+    		'uploaded_to_this_item' => __( 'Uploaded to this Hackademics Post', 'hackademics' ),
+    		'items_list'            => __( 'Hackademics Posts list', 'hackademics' ),
+    		'items_list_navigation' => __( 'Hackademics Posts list navigation', 'hackademics' ),
+    		'filter_items_list'     => __( 'Filter Hackademics Posts list', 'hackademics' ),
     	);
 
         $args = array(
-    		'label'                 => __( 'Class', 'hackademics' ),
+    		'label'                 => __( 'Hackademics Post', 'hackademics' ),
     		'description'           => __( 'The Parent Of All Hackademics CPTs', 'hackademics' ),
     		'labels'                => $labels,
     		'supports'              => array( 'title', 'excerpt', 'custom-fields', ),
@@ -94,9 +100,9 @@ if ( ! function_exists('hackademics_class') ) {
     		'publicly_queryable'    => true,
     		'capability_type'       => 'page',
     	);
-    	register_post_type( 'hack_class', $args );
+    	register_post_type( 'hack_post', $args );
     }
-    add_action( 'init', 'hackademics_class', 0 );
+    add_action( 'init', 'hackademics_posts', 0 );
 }
 
 /**
@@ -110,7 +116,7 @@ function makeADummyClass()
       'post_content'  => 'This is the over arching Hackademics post container',
       'post_excerpt'  => 'This is the over arching Hackademics post container',
       'post_status'   => 'draft',
-      'post_type'     => 'hack_class'
+      'post_type'     => 'hack_post'
     );
 
     // Insert the post into the database
@@ -128,7 +134,7 @@ add_action( 'admin_init', 'hackademics_settings_init' );
 
 function hackademics_add_admin_menu(  ) {
 
-	add_menu_page( 'Hackademics', 'Hackademics', 'manage_options', 'hackademics', 'hackademics_options_page' );
+	add_menu_page( 'Hackademics', 'Hackademics', 'manage_options', 'hackademics', 'hackademics_options_page', 'dashicons-welcome-learn-more' );
 
 }
 
@@ -139,14 +145,14 @@ function hackademics_settings_init(  ) {
 
 	add_settings_section(
 		'hackademics_pluginPage_section',
-		__( 'Your section description', 'hackademics' ),
+		__( 'This is where you will create and access all Hackademics posts to edit/update them. Check out the documentation to help get you started', 'hackademics' ),// TODO make this link to documentation (probably just a link to github md files?)
 		'hackademics_settings_section_callback',
 		'pluginPage'
 	);
 
 	add_settings_field(
 		'hackademics_text_field_0',
-		__( 'Settings field description', 'hackademics' ),
+		__( 'Pick slug name ', 'hackademics' ),// TODO do something with this? or not
 		'hackademics_text_field_0_render',
 		'pluginPage',
 		'hackademics_pluginPage_section'
@@ -188,18 +194,33 @@ function hackademics_options_page(  ) {
         $temp = $wp_query;
         $wp_query = null;
         $wp_query = new WP_Query();
-        $wp_query->query('post_type=hack_class');
-        if($wp_query->have_posts())
-        {
-            while ($wp_query->have_posts()) : $wp_query->the_post();
-                // get that content and stuff
-                echo '<h2>' . get_the_title() . '</h2>';
-            endwhile;
-        }
-        else
-        {
-            echo '<h2>Whoa! It looks like there are no Hackademics posts saved yet. Go save one and get started!</h2>';
-        }
+        $wp_query->query('post_type=hack_post');
+        echo '<section class="hackademics_options">';
+            echo '<h2>Hackademics Posts</h2>';
+            if($wp_query->have_posts())
+            {
+                echo "<ul class='hackademics_posts'>";
+                while ($wp_query->have_posts()) : $wp_query->the_post();
+                    // get that content and stuff
+                    echo "<li>";
+                        $hack_title = get_the_title();
+                        $hack_id = get_the_id();
+
+                        echo '<h3>' . $hack_title . '</h3>';
+                        echo '<p>' . get_the_excerpt() . '</p>';
+
+                        // make a CPT from a CPT... CPTception!
+                        $hack_id = new Post_Type( $hack_title );
+
+                    echo "</li>";
+                endwhile;
+                echo '</ul><!-- .hackademics_posts -->';
+            }
+            else
+            {
+                echo '<h2>Whoa! It looks like there are no Hackademics posts saved yet. Go save one and get started!</h2>';
+            }
+        echo '</section><!-- .hackademics_options -->';
         $wp_query = null;
         $wp_query = $temp;  // Reset
 		?>
